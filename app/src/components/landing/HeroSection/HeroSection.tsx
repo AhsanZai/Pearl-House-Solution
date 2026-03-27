@@ -1,21 +1,15 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useHeroSection } from "@/app/src/hooks/heroSection/useHeroSection";
 import LeadForm from "@/app/src/components/landing/LeadForm";
 import { slides } from "@/app/src/components/landing/HeroSection/HeroSection.data";
 
 export default function HeroSection() {
-  const [current, setCurrent] = useState(0);
-
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [next]);
+  const { current, goToSlide } = useHeroSection({
+    slidesCount: slides.length,
+    autoPlayInterval: 5000,
+  });
 
   return (
     <section className="relative w-full overflow-hidden" id="hero">
@@ -24,7 +18,7 @@ export default function HeroSection() {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${
               idx === current ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -40,9 +34,9 @@ export default function HeroSection() {
         ))}
 
         {/* Gradient overlay — dark on left, fades right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f45]/85 via-[#0a1f45]/50 to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#0a1f45]/85 via-[#0a1f45]/50 to-transparent z-[1]" />
         {/* Extra bottom fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent z-[1]" />
       </div>
 
       {/* ── Content ── */}
@@ -62,15 +56,19 @@ export default function HeroSection() {
             SYSTEM
           </h1>
 
-          {/* Orange CTA badge */}
-          <div className="inline-flex flex-col bg-[#f47b20] text-white rounded-lg shadow-xl shadow-orange-600/30 px-7 py-3.5 w-fit">
-            <span className="text-[16px] font-extrabold uppercase tracking-widest leading-tight">
+          {/* Orange CTA badge — clickable button */}
+          <button
+            type="button"
+            onClick={() => {}}
+            className="inline-flex flex-col items-start bg-[#f47b20] text-white rounded-lg shadow-xl shadow-orange-600/30 px-7 py-3.5 w-fit cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 border-none"
+          >
+            <span className="text-[16px] font-extrabold uppercase tracking-widest leading-tight text-left">
               FREE* HOME SYSTEM
             </span>
-            <span className="text-[12px] font-normal mt-1 opacity-90 tracking-wide">
+            <span className="text-[12px] font-normal mt-1 opacity-90 tracking-wide text-left">
               with $99 installation
             </span>
-          </div>
+          </button>
         </div>
 
         {/* RIGHT: Floating Lead Form — pinned to the right */}
@@ -80,12 +78,12 @@ export default function HeroSection() {
       </div>
 
       {/* ── Slider Dots ── */}
-      <div className="absolute bottom-4 left-6 md:left-10 z-[3] flex gap-2">
+      <div className="absolute bottom-4 left-6 md:left-10 z-3 flex gap-2">
         {slides.map((_, idx) => (
           <button
             key={idx}
             id={`hero-dot-${idx}`}
-            onClick={() => setCurrent(idx)}
+            onClick={() => goToSlide(idx)}
             aria-label={`Go to slide ${idx + 1}`}
             className={`w-2.5 h-2.5 rounded-full border-0 cursor-pointer transition-all duration-300 ${
               idx === current
