@@ -1,9 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import { useLeadForm } from "@/app/src/hooks/leadForm/useLeadForm";
+import { leadFormSchema } from "@/app/src/utils/validations/leadSchema";
 
 export default function LeadForm() {
   const { form, status, handleChange, handleSubmit } = useLeadForm();
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const isValid = leadFormSchema.isValidSync(form);
+
+  let errors: Record<string, string> = {};
+  if (!isValid) {
+    try {
+      leadFormSchema.validateSync(form, { abortEarly: false });
+    } catch (err: any) {
+      if (err.inner) {
+        err.inner.forEach((e: any) => {
+          if (!errors[e.path]) errors[e.path] = e.message;
+        });
+      }
+    }
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setTouched((prev) => ({ ...prev, [e.target.name]: true }));
+  };
 
   const inputClass =
     "w-full h-9 border border-gray-300 rounded-md px-3 text-[13px] text-gray-800 bg-white focus:outline-none focus:border-[#2d5fa2] focus:ring-2 focus:ring-[#2d5fa2]/20 transition-all placeholder-gray-400";
@@ -52,32 +74,58 @@ export default function LeadForm() {
       </div>
 
       {/* Phone + Zip */}
-      <div className="grid grid-cols-2 gap-2 mb-4">
-        <input
-          id="form-phone"
-          name="phone"
-          type="tel"
-          placeholder="Phone Number"
-          value={form.phone}
-          onChange={handleChange}
-          className={inputClass}
-        />
-        <input
-          id="form-zip"
-          name="zip"
-          type="text"
-          placeholder="Zip code"
-          value={form.zip}
-          onChange={handleChange}
-          className={inputClass}
-        />
+      <div className="mb-4">
+        <div className="grid grid-cols-2 gap-2 mb-1">
+          {/* Phone with US Flag */}
+          <div className="relative">
+            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-sm pointer-events-none">🇺🇸</span>
+            <input
+              id="form-phone"
+              name="phone"
+              type="tel"
+              placeholder="Phone Number"
+              value={form.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`${inputClass} pl-8 ${
+                touched.phone && errors.phone ? "border-red-500 focus:ring-red-500/20" : ""
+              }`}
+            />
+          </div>
+          
+          {/* Zip */}
+          <div className="relative">
+            <input
+              id="form-zip"
+              name="zip"
+              type="text"
+              placeholder="Zip code"
+              value={form.zip}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`${inputClass} ${
+                touched.zip && errors.zip ? "border-red-500 focus:ring-red-500/20" : ""
+              }`}
+            />
+          </div>
+        </div>
+
+        {/* Error Messages */}
+        <div className="flex justify-between px-1 h-3">
+          <span className="text-[10px] text-red-500 font-medium leading-tight">
+            {touched.phone && errors.phone ? errors.phone : ""}
+          </span>
+          <span className="text-[10px] text-red-500 font-medium leading-tight text-right">
+            {touched.zip && errors.zip ? errors.zip : ""}
+          </span>
+        </div>
       </div>
 
       {/* Submit Button */}
       <button
         type="submit"
         id="lead-form-submit"
-        disabled={status === "loading"}
+        disabled={status === "loading" || !isValid}
         className={`
           w-full h-11 rounded-lg
           transition-all duration-200 cursor-pointer font-bold text-[14px] tracking-widest uppercase
