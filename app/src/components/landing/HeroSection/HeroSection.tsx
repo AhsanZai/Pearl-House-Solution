@@ -57,18 +57,38 @@ export default function HeroSection() {
           </h1>
 
           {/* Orange CTA badge — clickable button */}
-          <button
-            type="button"
-            onClick={() => {}}
-            className="inline-flex flex-col items-start bg-[#f47b20] text-white rounded-lg shadow-xl shadow-orange-600/30 px-7 py-3.5 w-fit cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 border-none"
-          >
-            <span className="text-[16px] font-extrabold uppercase tracking-widest leading-tight text-left">
-              FREE* HOME SYSTEM
-            </span>
-            <span className="text-[12px] font-normal mt-1 opacity-90 tracking-wide text-left">
-              with $99 installation
-            </span>
-          </button>
+          {/* Orange CTA badge */}
+<button
+  type="button"
+  onClick={() => {}}
+  className="inline-flex flex-col items-start bg-[#f47b20] text-white rounded-[10px] px-7 py-3.5 w-fit cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 border-none"
+>
+  <span className="text-[17px] font-black uppercase tracking-widest leading-tight">
+    FREE* HOME SYSTEM
+  </span>
+  <span className="text-[13px] font-normal mt-1 opacity-90 tracking-wide">
+    with $99 installation
+  </span>
+</button>
+
+{/* Connector — dot + line */}
+<div className="flex items-stretch pl-6">
+  <div className="flex flex-col items-center mr-2.5">
+    <div className="w-px h-3 bg-white/20" />
+    <div className="w-1.5 h-1.5 rounded-full bg-white/30 my-px" />
+  </div>
+</div>
+
+{/* Visa disclaimer pill */}
+<div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1 w-fit self-start">
+  <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+    <rect width="28" height="18" rx="3" fill="white" />
+    <text x="5" y="13" fontSize="8" fontWeight="800" fontFamily="Arial, sans-serif" fill="#1A1F71" letterSpacing="0.5">VISA</text>
+  </svg>
+  <span className="text-[12px] text-white/80 italic whitespace-nowrap">
+     * As a Visa gift card
+  </span>
+</div>
         </div>
 
         {/* RIGHT: Floating Lead Form — pinned to the right */}

@@ -27,7 +27,7 @@ export default function Navbar() {
             Pearl
           </span>
           <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">
-            Housing Solution
+            Home Solutions
           </span>
         </div>
       </nav>
