@@ -68,6 +68,9 @@ export default function HeroSection() {
             <span className="text-[12px] font-normal mt-1 opacity-90 tracking-wide text-left">
               with $99 installation
             </span>
+            <span className="text-[11px] font-light italic mt-0.5 opacity-75 tracking-normal text-left">
+              *As a Visa gift card
+            </span>
           </button>
         </div>
 
