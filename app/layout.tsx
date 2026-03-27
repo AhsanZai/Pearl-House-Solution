@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Pearl Housing Solution – ADT Authorized Provider",
   description:
     "Help protect what matters most with an ADT-monitored system. Get a FREE home system with $99 installation from Pearl Housing Solution, your trusted ADT Authorized Provider.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -20,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

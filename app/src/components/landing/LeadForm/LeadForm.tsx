@@ -1,55 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useLeadForm } from "@/app/src/hooks/leadForm/useLeadForm";
 
 export default function LeadForm() {
-  const [form, setForm] = useState({
-    name: "",
-    lastName: "",
-    stAddress: "",
-    email: "",
-    phone: "",
-    zip: "",
-  });
-
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const response = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (!response.ok) throw new Error("Submission failed");
-
-      setStatus("success");
-      // Reset form after success
-      setForm({
-        name: "",
-        lastName: "",
-        stAddress: "",
-        email: "",
-        phone: "",
-        zip: "",
-      });
-      
-      // Reset status after 5s
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
-    }
-  };
+  const { form, status, handleChange, handleSubmit } = useLeadForm();
 
   const inputClass =
     "w-full h-9 border border-gray-300 rounded-md px-3 text-[13px] text-gray-800 bg-white focus:outline-none focus:border-[#2d5fa2] focus:ring-2 focus:ring-[#2d5fa2]/20 transition-all placeholder-gray-400";
