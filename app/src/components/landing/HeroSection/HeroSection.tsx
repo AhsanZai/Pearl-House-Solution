@@ -86,7 +86,7 @@ export default function HeroSection() {
     <text x="5" y="13" fontSize="8" fontWeight="800" fontFamily="Arial, sans-serif" fill="#1A1F71" letterSpacing="0.5">VISA</text>
   </svg>
   <span className="text-[12px] text-white/80 italic whitespace-nowrap">
-     * As a Visa gift card
+     * As a Visa gift card of $100
   </span>
 </div>
         </div>
