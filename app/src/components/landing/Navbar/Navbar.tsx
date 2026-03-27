@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <nav
-        className="w-full px-4 md:px-6 py-3 md:py-4 flex items-center justify-between bg-white max-w-7xl mx-auto"
+        className="w-full px-4 md:px-8 lg:px-12 py-3 md:py-4 flex items-center justify-between bg-white"
         aria-label="Main navigation"
       >
         {/* Left: Identity */}
