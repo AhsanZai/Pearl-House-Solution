@@ -76,9 +76,8 @@ export default function LeadForm() {
       {/* Phone + Zip */}
       <div className="mb-4">
         <div className="grid grid-cols-2 gap-2 mb-1">
-          {/* Phone with US Flag */}
+          {/* Phone */}
           <div className="relative">
-            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-sm pointer-events-none">🇺🇸</span>
             <input
               id="form-phone"
               name="phone"
@@ -87,7 +86,7 @@ export default function LeadForm() {
               value={form.phone}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`${inputClass} pl-8 ${
+              className={`${inputClass} ${
                 touched.phone && errors.phone ? "border-red-500 focus:ring-red-500/20" : ""
               }`}
             />
