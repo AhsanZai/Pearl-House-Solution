@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useLeadForm } from "@/app/src/hooks/leadForm/useLeadForm";
 import { leadFormSchema } from "@/app/src/utils/validations/leadSchema";
 
-export default function LeadForm() {
+interface LeadFormProps {
+  variant?: "full" | "short";
+}
+
+export default function LeadForm({ variant = "full" }: LeadFormProps) {
   const { form, status, handleChange, handleSubmit } = useLeadForm();
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
@@ -46,32 +50,36 @@ export default function LeadForm() {
         <label htmlFor="form-name" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
           Name
         </label>
-        <input id="form-name" name="name" type="text" value={form.name} onChange={handleChange} className={inputClass} />
+        <input id="form-name" name="name" type="text" value={form.name} onChange={handleChange} className={inputClass} placeholder="Full Name" />
       </div>
 
-      {/* Last Name */}
-      <div className="mb-3">
-        <label htmlFor="form-lastName" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
-          Last Name
-        </label>
-        <input id="form-lastName" name="lastName" type="text" value={form.lastName} onChange={handleChange} className={inputClass} />
-      </div>
+      {variant === "full" && (
+        <>
+          {/* Last Name */}
+          <div className="mb-3">
+            <label htmlFor="form-lastName" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
+              Last Name
+            </label>
+            <input id="form-lastName" name="lastName" type="text" value={form.lastName} onChange={handleChange} className={inputClass} />
+          </div>
 
-      {/* St Address */}
-      <div className="mb-3">
-        <label htmlFor="form-stAddress" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
-          St Address
-        </label>
-        <input id="form-stAddress" name="stAddress" type="text" value={form.stAddress} onChange={handleChange} className={inputClass} />
-      </div>
+          {/* St Address */}
+          <div className="mb-3">
+            <label htmlFor="form-stAddress" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
+              St Address
+            </label>
+            <input id="form-stAddress" name="stAddress" type="text" value={form.stAddress} onChange={handleChange} className={inputClass} />
+          </div>
 
-      {/* Email */}
-      <div className="mb-3">
-        <label htmlFor="form-email" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
-          Email
-        </label>
-        <input id="form-email" name="email" type="email" value={form.email} onChange={handleChange} className={inputClass} />
-      </div>
+          {/* Email */}
+          <div className="mb-3">
+            <label htmlFor="form-email" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
+              Email
+            </label>
+            <input id="form-email" name="email" type="email" value={form.email} onChange={handleChange} className={inputClass} />
+          </div>
+        </>
+      )}
 
       {/* Phone + Zip */}
       <div className="mb-4">

@@ -5,7 +5,11 @@ import { useHeroSection } from "@/app/src/hooks/heroSection/useHeroSection";
 import LeadForm from "@/app/src/components/landing/LeadForm";
 import { slides } from "@/app/src/components/landing/HeroSection/HeroSection.data";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  variant?: "full" | "short";
+}
+
+export default function HeroSection({ variant = "full" }: HeroSectionProps) {
   const { current, goToSlide } = useHeroSection({
     slidesCount: slides.length,
     autoPlayInterval: 5000,
@@ -101,7 +105,7 @@ export default function HeroSection() {
 
         {/* RIGHT: Floating Lead Form — pinned to the right */}
         <div className="lg:self-center w-full sm:w-auto flex justify-center lg:justify-end shrink-0">
-          <LeadForm />
+          <LeadForm variant={variant} />
         </div>
       </div>
 
