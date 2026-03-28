@@ -86,6 +86,7 @@ export default function LeadForm() {
               value={form.phone}
               onChange={handleChange}
               onBlur={handleBlur}
+              maxLength={14}
               className={`${inputClass} ${
                 touched.phone && errors.phone ? "border-red-500 focus:ring-red-500/20" : ""
               }`}

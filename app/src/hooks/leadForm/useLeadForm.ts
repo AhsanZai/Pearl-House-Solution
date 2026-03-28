@@ -16,8 +16,26 @@ export function useLeadForm() {
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  const formatPhoneNumber = (value: string) => {
+    // Strip all non-numeric characters
+    const digits = value.replace(/\D/g, "");
+    
+    // Format: start with "(" as soon as there is input
+    if (digits.length === 0) return "";
+    if (digits.length <= 3) return `(${digits}`;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    
+    if (name === "phone") {
+      // For phone, only allow the result of the formatter (which is based on digits)
+      setForm((prev) => ({ ...prev, [name]: formatPhoneNumber(value) }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
