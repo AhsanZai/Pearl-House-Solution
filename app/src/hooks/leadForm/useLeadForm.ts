@@ -31,8 +31,11 @@ export function useLeadForm() {
     const { name, value } = e.target;
     
     if (name === "phone") {
-      // For phone, only allow the result of the formatter (which is based on digits)
       setForm((prev) => ({ ...prev, [name]: formatPhoneNumber(value) }));
+    } else if (name === "zip") {
+      // Only allow 5 digits for zip
+      const digits = value.replace(/\D/g, "").slice(0, 5);
+      setForm((prev) => ({ ...prev, [name]: digits }));
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
     }
