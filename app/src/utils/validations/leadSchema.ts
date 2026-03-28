@@ -5,11 +5,5 @@ export const leadFormSchema = yup.object().shape({
   lastName: yup.string().optional(),
   stAddress: yup.string().optional(),
   email: yup.string().email("Invalid email format").optional(),
-  phone: yup
-  .string()
-  .required("Phone number is required")
-  .matches(
-    /^\+1[\d\s.-]+$/,
-    "Phone number must be valid"
-  )
+  phone: yup.string().required("Phone number is required"),
 });

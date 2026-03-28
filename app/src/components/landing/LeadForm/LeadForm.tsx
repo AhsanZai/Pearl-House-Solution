@@ -82,7 +82,7 @@ export default function LeadForm() {
               id="form-phone"
               name="phone"
               type="tel"
-              placeholder="Phone Number"
+              placeholder="(555) 000-0000"
               value={form.phone}
               onChange={handleChange}
               onBlur={handleBlur}
