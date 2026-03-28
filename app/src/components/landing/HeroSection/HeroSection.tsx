@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden" id="hero">
       {/* ── Slider Images ── */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-[#0a1f45]">
         {slides.map((slide, idx) => (
           <div
             key={idx}
@@ -22,21 +22,29 @@ export default function HeroSection() {
               idx === current ? "opacity-100" : "opacity-0"
             }`}
           >
+            {/* Background 'Ghost' layer - fills space with blurred colors, preventing any 'zooming' of the subject */}
+            <Image
+              src={slide.src}
+              alt=""
+              fill
+              className="object-cover blur-3xl opacity-30 scale-110 transform-gpu"
+              aria-hidden="true"
+            />
+            {/* Focal layer - uses object-contain to ensure NO ZOOMING occurs on the actual subject */}
             <Image
               src={slide.src}
               alt={slide.alt}
               fill
               priority={idx === 0}
-              className="object-cover object-center"
+              className="object-contain" // Preserves full frame without ever zooming the subject
               sizes="100vw"
             />
           </div>
         ))}
 
-        {/* Gradient overlay — dark on left, fades right */}
-        <div className="absolute inset-0 bg-linear-to-r from-[#0a1f45]/85 via-[#0a1f45]/50 to-transparent z-[1]" />
-        {/* Extra bottom fade */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent z-[1]" />
+        {/* Cinematic Gradient overlay — refined for ADT branding */}
+        <div className="absolute inset-0 bg-linear-to-r from-[#0a1f45]/90 via-[#0a1f45]/40 to-transparent z-[1]" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#0a1f45]/60 to-transparent z-[1]" />
       </div>
 
       {/* ── Content ── */}
