@@ -103,6 +103,7 @@ export default function LeadForm() {
               value={form.zip}
               onChange={handleChange}
               onBlur={handleBlur}
+              maxLength={5}
               className={`${inputClass} ${
                 touched.zip && errors.zip ? "border-red-500 focus:ring-red-500/20" : ""
               }`}
