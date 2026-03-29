@@ -60,7 +60,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
             <label htmlFor="form-lastName" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
               Last Name
             </label>
-            <input id="form-lastName" name="lastName" type="text" value={form.lastName} onChange={handleChange} className={inputClass} />
+            <input id="form-lastName" name="lastName" type="text" value={form.lastName} onChange={handleChange} className={inputClass} placeholder="Last Name" />
           </div>
 
           {/* St Address */}
@@ -68,7 +68,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
             <label htmlFor="form-stAddress" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
               St Address
             </label>
-            <input id="form-stAddress" name="stAddress" type="text" value={form.stAddress} onChange={handleChange} className={inputClass} />
+            <input id="form-stAddress" name="stAddress" type="text" value={form.stAddress} onChange={handleChange} className={inputClass} placeholder="Street Address" />
           </div>
 
           {/* Email */}
@@ -76,7 +76,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
             <label htmlFor="form-email" className="block text-[12px] font-semibold text-gray-700 mb-1 tracking-wide">
               Email
             </label>
-            <input id="form-email" name="email" type="email" value={form.email} onChange={handleChange} className={inputClass} />
+            <input id="form-email" name="email" type="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="Email Address" />
           </div>
         </>
       )}
