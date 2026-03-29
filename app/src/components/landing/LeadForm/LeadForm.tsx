@@ -82,7 +82,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
       )}
 
       {/* Phone + Zip */}
-      <div className="mb-4">
+      <div className="mb-2">
         <div className="grid grid-cols-2 gap-2 mb-1">
           {/* Phone */}
           <div className="relative">
