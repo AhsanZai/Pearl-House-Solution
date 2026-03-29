@@ -131,7 +131,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
       </div>
 
       {/* TCPA Disclaimer */}
-      <div className="mb-4 text-[10px] text-gray-500 leading-relaxed font-medium">
+      <div className="mb-4 text-[10px] text-gray-500 leading-relaxed font-medium text-justify">
         By clicking, I agree to be contacted by Pearl Home Solutions, even if I&apos;m on a Do Not Call list. 
         In addition, by clicking &quot;submit&quot;, I consent to receive a call back at the phone number provided, including cellular, which may be generated from an automated phone dialing system. 
         You are not required to provide this consent to make a purchase from us.

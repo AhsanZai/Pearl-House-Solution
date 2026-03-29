@@ -31,10 +31,10 @@ export default function Navbar() {
             className="object-contain w-[30px] sm:w-[40px] md:w-[50px] h-auto"
           />
           <div className="flex flex-col items-start leading-none group">
-            <span className="text-sm sm:text-lg md:text-[21px] font-black text-[#1b3a6b] tracking-tighter uppercase transition-all duration-300">
+            <span className="text-sm sm:text-lg md:text-[21px] font-black text-[#1b3a6b] tracking-[0.1em] uppercase transition-all duration-300">
               PEARL
             </span>
-            <span className="text-[7px] sm:text-[9px] md:text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-0.5 whitespace-nowrap">
+            <span className="text-[7px] sm:text-[9px] md:text-[10px] font-bold text-gray-500 uppercase tracking-widest -mt-1 whitespace-nowrap">
               Home Solutions
             </span>
           </div>
