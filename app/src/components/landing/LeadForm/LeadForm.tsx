@@ -131,10 +131,16 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
       </div>
 
       {/* TCPA Disclaimer */}
-      <div className="mb-4 text-[10px] text-gray-500 leading-relaxed font-medium text-justify">
-        By clicking, I agree to be contacted by Pearl Home Solutions, even if I&apos;m on a Do Not Call list. 
-        In addition, by clicking &quot;submit&quot;, I consent to receive a call back at the phone number provided, including cellular, which may be generated from an automated phone dialing system. 
-        You are not required to provide this consent to make a purchase from us.
+      <div className="mb-4 text-[9px] text-gray-500 leading-relaxed font-medium text-justify">
+        <strong>Safe Streets USA LLC Express Written Consent Form MARKETING AUTHORIZATION:</strong> I, the undersigned, hereby authorize Safe Streets USA, LLC (&quot;Safe Streets&quot;), directly or through its affiliates and marketing partners, to contact me from time-to-time by telephone, text, email and/or direct mail with information and offers about products and services that might interest me. By clicking contact me below, I hereby authorize the receipt of such solicitations at the telephone number(s), (including cellular numbers), emails addresses) and /or mailing address(es) shown below, even if such telephone number(s), email address(es) or mailing addresses are listed on any &quot;do not call&quot; or other do not solicit registry or list and I agree that any such telephone calls and text messages may be generated using an automated phone dialing system. To discontinue or opt out of text messages reply with STOP I understand I am not required to consent to make a purchase. Message and data rates may apply, Message frequency varies. View our Privacy Policy at{" "}
+        <a href="https://www.safestreets.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+          https://www.safestreets.com/privacy-policy
+        </a>{" "}
+        our Terms &amp; Conditions at{" "}
+        <a href="https://www.safestreets.com/terms-conditions" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+          https://www.safestreets.com/terms-conditions
+        </a>. 
+        Carriers are not liable for delayed or undelivered messages.
       </div>
 
       {/* Submit Button */}
@@ -152,8 +158,8 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
           ${status === "error" ? "bg-red-600 text-white shadow-red-600/30" : ""}
         `}
       >
-        {status === "idle" && "SUBMIT"}
-        {status === "loading" && "SUBMITTING..."}
+        {status === "idle" && "CONTACT ME"}
+        {status === "loading" && "SENDING..."}
         {status === "success" && "SUCCESS!"}
         {status === "error" && "TRY AGAIN"}
       </button>

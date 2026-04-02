@@ -15,3 +15,17 @@ export const footerLegalText =
   "Two-way encryption only available with compatible SiX™️ devices";
 
 export const photoAttribution = "Photos are for illustrative purposes only and may not reflect the exact product/service actually provided.";
+
+export const visaRewardDisclaimer = 
+  "The Visa\u00a8 Reward Card is issued by MB Financial Bank, N.A., Member FDIC, pursuant to a license from Visa U.S.A. Inc. " +
+  "The Visa\u00a8 Reward Card is provided by SafeStreets USA and is not sponsored by ADT Security Systems. " +
+  "Limit one Visa\u00a8 Reward Card and system per household. To be eligible for the Visa\u00a8 Reward Card you must be a new " +
+  "SafeStreets USA customer, have signed a 36 month monitoring agreement and complied with the redemption instructions.";
+
+export const theftProtectionDisclaimer = 
+  "ADT Theft Protection Guarantee: Customer may receive reimbursement of up to five hundred dollars ($500) of Customer\u2019s " +
+  "homeowner\u2019s insurance deductible (if any) if, and only if, ALL requirements for Theft Protection Guarantee are met to " +
+  "ADT\u2019s reasonable satisfaction. Customer must request reimbursement within 60 days of property loss. Request must be " +
+  "mailed to ADT and include: Theft Protection Guarantee certificate signed by Customer, a letter from Customer requesting " +
+  "reimbursement, a copy of the police report, and a copy of the accepted insurance claim. ADT reserves the right to reject " +
+  "any application for reimbursement that does not comply with all of the requirements.";
