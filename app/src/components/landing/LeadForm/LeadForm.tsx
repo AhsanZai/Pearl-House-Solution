@@ -48,7 +48,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
       "
     >      
       <div className="mb-6 text-center">
-        <h3 className="text-2xl font-bold text-[#1e3a5f] mb-1">Get Your Free Quote</h3>
+        <h3 className="text-2xl font-bold text-[#1e3a5f] mb-1">Get Your Quote</h3>
         <p className="text-gray-500 text-sm">Secure your home with the best in class security.</p>
       </div>
 
@@ -197,7 +197,7 @@ export default function LeadForm({ variant = "full" }: LeadFormProps) {
       >
         {status === "idle" && (
           <>
-            <span>Contact me</span>
+            <span>Get Quote</span>
             <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
               <path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
             </svg>
