@@ -6,7 +6,7 @@ export type FormStatus = "idle" | "loading" | "success" | "error";
 
 export function useLeadForm() {
   const [form, setForm] = useState({
-    name: "",
+    firstName: "",
     lastName: "",
     stAddress: "",
     email: "",
@@ -57,7 +57,7 @@ export function useLeadForm() {
       setStatus("success");
       // Reset form after success
       setForm({
-        name: "",
+        firstName: "",
         lastName: "",
         stAddress: "",
         email: "",
