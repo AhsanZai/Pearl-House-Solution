@@ -68,40 +68,51 @@ export default function HeroSection({ variant = "full" }: HeroSectionProps) {
             SYSTEM
           </h1>
 
-          {/* Orange CTA badge — clickable button */}
-          {/* Orange CTA badge */}
-<button
-  type="button"
-  onClick={() => {}}
-  className="inline-flex flex-col items-start bg-[#f47b20] text-white rounded-[10px] px-7 py-3.5 w-fit cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 border-none"
->
-  <span className="text-[17px] font-black uppercase tracking-widest leading-tight">
-    FREE* HOME SYSTEM
-  </span>
-  <span className="text-[13px] font-normal mt-1 opacity-90 tracking-wide">
-    with $99 installation
-  </span>
-</button>
+          {/* Orange CTA Container */}
+          <div
+            onClick={() => {}}
+            className="group flex flex-col items-start bg-[#f47b20] text-white rounded-[10px] px-6 sm:px-7 py-5 w-full max-w-[440px] cursor-pointer hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] shadow-lg shadow-orange-900/20 border border-white/20"
+          >
+            <span className="text-[18px] sm:text-[20px] font-black uppercase tracking-widest leading-tight mb-3">
+              FREE* HOME SYSTEM
+            </span>
+            
+            <div className="w-full h-px bg-white/30 mb-3" />
+            
+            <p className="text-[13px] font-medium leading-[1.5] tracking-wide text-white/95">
+              *With <span className="font-bold text-white">$99 installation</span> charge and new monitoring agreement starting at <span className="font-bold text-white">$49.99 per month</span>. Early termination fee applies.{" "}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  document.getElementById('legal-terms')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="underline underline-offset-[3px] decoration-white/60 hover:decoration-white transition-colors cursor-pointer bg-transparent border-none p-0 inline font-inherit text-white"
+              >
+                See terms for details.
+              </button>
+            </p>
+          </div>
 
-{/* Connector — dot + line */}
-<div className="flex items-stretch pl-6">
-  <div className="flex flex-col items-center mr-2.5">
-    <div className="w-px h-3 bg-white/20" />
-    <div className="w-1.5 h-1.5 rounded-full bg-white/30 my-px" />
-  </div>
-</div>
+          {/* Connector — dot + line */}
+          <div className="flex items-stretch pl-6 mt-1">
+            <div className="flex flex-col items-center mr-2.5">
+              <div className="w-px h-3 bg-white/20" />
+              <div className="w-1.5 h-1.5 rounded-full bg-white/30 my-px" />
+            </div>
+          </div>
 
-{/* Visa disclaimer pill */}
-<div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1 w-fit self-start">
-  <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-    <rect width="28" height="18" rx="3" fill="white" />
-    <text x="5" y="13" fontSize="8" fontWeight="800" fontFamily="Arial, sans-serif" fill="#1A1F71" letterSpacing="0.5">VISA</text>
-  </svg>
-  <span className="text-[12px] text-white/80 italic whitespace-nowrap">
-     * As a Visa gift card of $100
-  </span>
-</div>
-        </div>
+          {/* Visa disclaimer pill */}
+          <div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1 w-fit self-start mb-2.5 mt-1">
+            <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+              <rect width="28" height="18" rx="3" fill="white" />
+              <text x="5" y="13" fontSize="8" fontWeight="800" fontFamily="Arial, sans-serif" fill="#1A1F71" letterSpacing="0.5">VISA</text>
+            </svg>
+            <span className="text-[12px] text-white/80 italic whitespace-nowrap">
+               Visa gift card of $100** from SafeStreets
+            </span>
+          </div>
+      </div>
 
         {/* RIGHT: Floating Lead Form — pinned to the right */}
         <div className="lg:self-center w-full sm:w-auto flex justify-center lg:justify-end shrink-0">
