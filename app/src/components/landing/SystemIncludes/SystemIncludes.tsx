@@ -4,7 +4,7 @@ export default function SystemIncludes() {
   return (
     <section className="bg-gray-50 border-y border-gray-200 py-14 px-6 text-center">
       <h2 className="text-2xl font-extrabold text-[#1e3a5f] mb-10 tracking-tight">
-        Your System Include:
+        Your System Includes:
       </h2>
 
       <div className="flex flex-wrap justify-center gap-16 max-w-2xl mx-auto">

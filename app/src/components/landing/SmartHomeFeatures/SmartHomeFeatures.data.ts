@@ -11,5 +11,5 @@ export const features: FeatureRecord[] = [
   { icon: Activity, label: "24/7 Live Feed", id: "feature-live" },
   { icon: Moon, label: "Night Vision", id: "feature-night" },
   { icon: Bell, label: "Notification", id: "feature-notify" },
-  { icon: Mic, label: "Two Walk Talk", id: "feature-two-way" },
+  { icon: Mic, label: "Two-Way Talk", id: "feature-two-way" },
 ];
