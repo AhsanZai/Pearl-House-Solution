@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   title: "Pearl Home Solutions – ADT Authorized Provider",
   description:
     "Help protect what matters most with an ADT-monitored system. Get a FREE home system with $99 installation (As a Visa gift card) from Pearl Housing Solution, your trusted ADT Authorized Provider.",
-  icons: {
-    icon: "/pearl-logo.png",
-  },
 };
 
 export default function RootLayout({
