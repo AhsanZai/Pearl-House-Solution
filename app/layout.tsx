@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Help protect what matters most with an ADT-monitored system. Get a FREE home system with $99 installation (As a Visa gift card) from Pearl Housing Solution, your trusted ADT Authorized Provider.",
   icons: {
-    icon: "/icon.png",
+    icon: "/pearl-logo.png",
   },
 };
 
