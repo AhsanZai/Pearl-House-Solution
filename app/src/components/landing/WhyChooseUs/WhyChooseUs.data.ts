@@ -11,7 +11,7 @@ export const cards: WhyChooseUsCard[] = [
   {
     id: "why-theft",
     icon: ShieldCheck,
-    title: "Theft Protection\nGuarantee",
+    title: "Theft Protection\nGuarantee*",
     desc: "(Certain restrictions apply) Our security systems are designed to help protect your home and loved ones with reliable technology.",
   },
   {

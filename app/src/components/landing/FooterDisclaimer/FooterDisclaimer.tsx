@@ -5,11 +5,10 @@ export default function FooterDisclaimer() {
     <footer id="legal-terms" className="bg-white border-t border-gray-100 py-10 px-6 sm:px-10 mt-auto">
       <div className="max-w-4xl mx-auto text-center space-y-6">
         <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
-          {footerLegalText}
-        </p>
-
-        <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
           {visaRewardDisclaimer}
+        </p>
+        <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
+          {footerLegalText}
         </p>
 
         <p className="text-[11px] text-gray-400 leading-relaxed font-medium">
