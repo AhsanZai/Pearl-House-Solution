@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local AI instructions/rules
+AI_INSTRUCTIONS.md
+.cursor/rules/project-standards-always.mdc
