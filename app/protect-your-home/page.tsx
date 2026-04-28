@@ -1,9 +1,9 @@
-import Navbar from "@/app/src/components/landing/Navbar";
-import HeroSection from "@/app/src/components/landing/HeroSection";
-import SmartHomeFeatures from "@/app/src/components/landing/SmartHomeFeatures";
-import SystemIncludes from "@/app/src/components/landing/SystemIncludes";
-import WhyChooseUs from "@/app/src/components/landing/WhyChooseUs";
-import FooterDisclaimer from "@/app/src/components/landing/FooterDisclaimer";
+import Navbar from "@/app/src/safestreet/components/Navbar";
+import HeroSection from "@/app/src/safestreet/components/HeroSection";
+import SmartHomeFeatures from "@/app/src/safestreet/components/SmartHomeFeatures";
+import SystemIncludes from "@/app/src/safestreet/components/SystemIncludes";
+import WhyChooseUs from "@/app/src/safestreet/components/WhyChooseUs";
+import FooterDisclaimer from "@/app/src/safestreet/components/FooterDisclaimer";
 
 export default function ProtectYourHome() {
   return (
