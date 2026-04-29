@@ -1,27 +1,38 @@
 import { NextResponse } from "next/server";
 
-// Use the environment variable for security
-const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "";
+const SCRIPT_URLS: Record<string, string> = {
+  safestreet: process.env.GOOGLE_SCRIPT_URL_SAFESTREET || "",
+  medguard: process.env.GOOGLE_SCRIPT_URL_MEDGUARD || "",
+};
 
-if (!GOOGLE_SCRIPT_URL) {
-  console.warn("GOOGLE_SCRIPT_URL is not defined in .env.local");
-}
+Object.entries(SCRIPT_URLS).forEach(([key, url]) => {
+  if (!url) {
+    console.warn(`Google Apps Script URL for "${key}" is not set in .env.local`);
+  }
+});
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    // Proxy the request to Google Apps Script
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    const landing: string = data.landing ?? "safestreet";
+    const scriptUrl = SCRIPT_URLS[landing] ?? SCRIPT_URLS["safestreet"];
+
+    if (!scriptUrl) {
+      return NextResponse.json(
+        { result: "error", message: "Google Script URL not configured" },
+        { status: 500 }
+      );
+    }
+
+    const response = await fetch(scriptUrl, {
       method: "POST",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(data),
     });
 
     if (!response.ok) {
-      throw new Error("Failed to submit to Google Sheets");
+      throw new Error(`Failed to submit to Google Sheets (landing: ${landing})`);
     }
 
     return NextResponse.json({ result: "success" });
